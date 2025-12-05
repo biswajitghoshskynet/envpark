@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
   selector: 'app-header',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  constructor(private sidebarService: SidebarService) {}
+
+  toggleSidebar() {
+    this.sidebarService.toggle();
+  }
 
 }

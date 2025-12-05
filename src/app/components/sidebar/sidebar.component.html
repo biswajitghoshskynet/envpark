@@ -1,4 +1,10 @@
-<div class="bg-[#fff] rounded-[10px] px-[10px] py-[10px] min-w-[250px] max-w-[250px]">
+<!-- logo -->
+<div class="hidden min-[1024px]:block mb-[25px]">
+    <img src="logo.png" alt="Logo" />
+</div>
+
+<div *ngIf="isOpen$ | async" class="bg-[#fff] rounded-[10px] px-[10px] py-[10px] min-w-[250px] max-w-[100%]  min-[1024px]:shadow-none shadow min-[1024px]:max-w-[250px]  top-[65px] left-[20px] right-[20px]  min-[1024px]:static absolute min-[1024px]:min-h-[calc(100%-49px)]">
+
     <div class="sideBarMainList">
         <ul>
             <li class="active">
