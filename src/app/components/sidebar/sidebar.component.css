@@ -1,3 +1,8 @@
+.sideBarContainerDefault {
+    min-width: 250px;
+    max-width: 250px;
+}
+
 .sideBarMainList ul li {
     font-size: 13px;
     color: #5a5a5a;
@@ -10,12 +15,17 @@
     align-items: center;
     gap: 5px;
 }
-.sideBarMainList ul li>a:hover .menuIcon, .sideBarMainList ul li.active>a .menuIcon{
+
+.sideBarMainList ul li>a:hover .menuIcon,
+.sideBarMainList ul li.active>a .menuIcon {
     background-color: #94c963;
 }
-.sideBarMainList ul li>a:hover svg, .sideBarMainList ul li.active>a svg{
+
+.sideBarMainList ul li>a:hover svg,
+.sideBarMainList ul li.active>a svg {
     fill: #fff;
 }
+
 .menuIcon {
     height: 50px;
     width: 50px;
@@ -23,4 +33,36 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+.toggleIcon.toggleIconActive svg{
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+@media (min-width: 1024px) {
+    .sideBarContainerDefault.sideBarContainer {
+        max-width: 70px;
+        min-width: 70px;
+    }
+
+   .sideBarContainerDefault.sideBarContainer .menuItemText {
+        display: none;
+    }
+    .sideBarLogo .smallLogo {
+        display: none;
+    }
+    .sideBarLogo.sideBarLogoActive .smallLogo {
+        display: block;
+        margin: 0 auto;
+    }
+    .sideBarLogo.sideBarLogoActive .bigLogo {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .sideBarContainerDefault {
+        min-width: 250px;
+        max-width: 100%;
+    }
+
 }

@@ -11,9 +11,18 @@ import { SidebarService } from '../../services/sidebar.service';
 })
 export class SidebarComponent {
   readonly isOpen$;
+  isContainerActive = false;
 
   constructor(private sidebarService: SidebarService) {
     this.isOpen$ = this.sidebarService.isOpen$;
+  }
+
+  toggleContainerClass(event?: MouseEvent) {
+    // prevent click from bubbling to parent elements
+    if (event) {
+      event.stopPropagation();
+    }
+    this.isContainerActive = !this.isContainerActive;
   }
 
 }
