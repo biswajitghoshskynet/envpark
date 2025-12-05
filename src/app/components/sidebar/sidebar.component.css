@@ -1,0 +1,26 @@
+.sideBarMainList ul li {
+    font-size: 13px;
+    color: #5a5a5a;
+    font-weight: 600;
+
+}
+
+.sideBarMainList ul li>a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.sideBarMainList ul li>a:hover .menuIcon, .sideBarMainList ul li.active>a .menuIcon{
+    background-color: #94c963;
+}
+.sideBarMainList ul li>a:hover svg, .sideBarMainList ul li.active>a svg{
+    fill: #fff;
+}
+.menuIcon {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}

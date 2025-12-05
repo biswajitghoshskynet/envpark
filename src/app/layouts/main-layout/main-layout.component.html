@@ -1,0 +1,19 @@
+<main class="px-[20px] md:px-[30px] py-[20px] md:py-[25px]">
+  <div class="flex gap-x-[20px]">
+
+    <div class="hidden min-[1024px]:block">
+      <!-- logo -->
+      <div class="hidden min-[1024px]:block mb-[25px]">
+        <img src="logo.png" alt="Logo" />
+      </div>
+      <app-sidebar />
+    </div>
+
+    <div class="w-full">
+      <app-header />
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+  <app-footer />
+</main>
