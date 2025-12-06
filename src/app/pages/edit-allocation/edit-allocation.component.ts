@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageTitleService } from '../../services/page-title.service';
 
 @Component({
   selector: 'app-edit-allocation',
@@ -8,5 +9,10 @@ import { Component } from '@angular/core';
   styleUrl: './edit-allocation.component.css'
 })
 export class EditAllocationComponent {
+  constructor(private pageTitle: PageTitleService) { }
+
+  ngOnInit(): void {
+    this.pageTitle.setTitle('View Bookings');
+  }
 
 }

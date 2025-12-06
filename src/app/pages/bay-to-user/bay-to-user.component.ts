@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PageTitleService } from '../../services/page-title.service';
 
 @Component({
   selector: 'app-bay-to-user',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
   styleUrl: './bay-to-user.component.css'
 })
 export class BayToUserComponent {
+ constructor(private pageTitle: PageTitleService) { }
 
+  ngOnInit(): void {
+    this.pageTitle.setTitle('Select Parking Bay');
+  }
 }
