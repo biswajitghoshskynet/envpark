@@ -10,19 +10,23 @@
 
 }
 
-.sideBarMainList ul li>a {
+.sideBarMainList ul li>a, .sideBarMainList ul li>button {
     display: flex;
     align-items: center;
     gap: 5px;
 }
 
 .sideBarMainList ul li>a:hover .menuIcon,
-.sideBarMainList ul li.active>a .menuIcon {
+.sideBarMainList ul li.active>a .menuIcon,
+.sideBarMainList ul li>button:hover .menuIcon,
+.sideBarMainList ul li.active>button .menuIcon  {
     background-color: #94c963;
 }
 
 .sideBarMainList ul li>a:hover svg,
-.sideBarMainList ul li.active>a svg {
+.sideBarMainList ul li.active>a svg,
+.sideBarMainList ul li>button:hover svg,
+.sideBarMainList ul li.active>button svg {
     fill: #fff;
 }
 
@@ -33,10 +37,46 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
 }
 .toggleIcon.toggleIconActive svg{
     transform: rotate(180deg);
     transition: transform 0.3s ease;
+}
+.sub-menu {
+        padding-left: 50px;
+    }
+.sub-menu li{
+    position: relative;
+    padding-top: 21.5px;
+    padding-bottom: 18px;
+    padding-left: 13px;
+}
+.sub-menu li::before {
+    content: '';
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    background-color: #d2d2d2;
+    border-radius: 50%;
+    left: 0;
+    top: 27px;
+    transition: 0.3s;
+}
+.sub-menu li::after {
+    content: '';
+    position: absolute;
+    height: 70px;
+    width: 28px;
+    border-left: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    border-right: none;
+    border-top: none;
+    border-bottom-left-radius: 15px;
+    left: -27px;
+    top: -39px;
 }
 @media (min-width: 1024px) {
     .sideBarContainerDefault.sideBarContainer {
@@ -56,6 +96,9 @@
     }
     .sideBarLogo.sideBarLogoActive .bigLogo {
         display: none;
+    }
+    .sideBarContainerDefault.sideBarContainer .sub-menu{
+        display: none !important;
     }
 }
 

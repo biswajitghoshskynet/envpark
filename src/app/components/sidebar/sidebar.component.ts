@@ -12,6 +12,10 @@ import { SidebarService } from '../../services/sidebar.service';
 export class SidebarComponent {
   readonly isOpen$;
   isContainerActive = false;
+  // map of submenu open states, keyed by menu id
+  openMenus: Record<string, boolean> = {
+    view: false,
+  };
 
   constructor(private sidebarService: SidebarService) {
     this.isOpen$ = this.sidebarService.isOpen$;
@@ -23,6 +27,21 @@ export class SidebarComponent {
       event.stopPropagation();
     }
     this.isContainerActive = !this.isContainerActive;
+  }
+
+  toggleMenu(key: string, event?: MouseEvent) {
+    if (event) {
+      event.stopPropagation();
+    }
+    const currentlyOpen = !!this.openMenus[key];
+    // close all menus first (accordion behavior)
+    Object.keys(this.openMenus).forEach(k => this.openMenus[k] = false);
+    // toggle the requested menu: open if it was closed, close if it was open
+    this.openMenus[key] = !currentlyOpen;
+  }
+
+  isMenuOpen(key: string) {
+    return !!this.openMenus[key];
   }
 
 }

@@ -11,8 +11,8 @@
 
     <div class="sideBarMainList">
         <ul>
-            <li class="active">
-                <a>
+            <li>
+                <a href="/">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#5a5a5a">
@@ -23,8 +23,8 @@
                     <span class="menuItemText">Home</span>
                 </a>
             </li>
-            <li>
-                <a>
+            <li class="relative">
+                <button type="button" (click)="toggleMenu('allocations',$event)" class="w-full text-left flex items-center gap-x-3">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#5a5a5a">
@@ -34,10 +34,16 @@
                     </span>
 
                     <span class="menuItemText">Allocations</span>
-                </a>
+                   
+                </button>
+
+                <ul *ngIf="isMenuOpen('allocations')" class="sub-menu">
+                    <li><a class="submenuItem" href="/allocation/bayToUser">Bay to User</a></li>
+                    <li><a class="submenuItem">Bay to Department</a></li>
+                </ul>
             </li>
-            <li>
-                <a>
+            <li class="relative">
+                <button type="button" (click)="toggleMenu('view',$event)" class="w-full text-left flex items-center gap-x-3">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#5a5a5a">
@@ -47,10 +53,29 @@
                     </span>
 
                     <span class="menuItemText">View</span>
-                </a>
+                   
+                </button>
+
+                <ul *ngIf="isMenuOpen('view')" class="sub-menu">
+                    <li>
+                        <a class="submenuItem">View Carpark</a>
+                    </li>
+                    <li>
+                        <a class="submenuItem">User Allocations</a>
+                    </li>
+                    <li>
+                        <a class="submenuItem">Department Allocations</a>
+                    </li>
+                    <li>
+                        <a class="submenuItem">Expiry Alert</a>
+                    </li>
+                    <li>
+                        <a class="submenuItem">Car Park Waiting List</a>
+                    </li>
+                </ul>
             </li>
-            <li>
-                <a>
+            <li class="relative">
+                <button type="button" (click)="toggleMenu('setup',$event)">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                             fill="#5a5a5a">
@@ -60,9 +85,18 @@
                     </span>
 
                     <span class="menuItemText">Setup</span>
-                </a>
+                   
+                </button>
+
+                <ul *ngIf="isMenuOpen('setup')" class="sub-menu">
+                    <li><a class="submenuItem">Users</a></li>
+                    <li><a class="submenuItem">Department</a></li>
+                    <li><a class="submenuItem">Carparks</a></li>
+                    <li><a class="submenuItem">Edit Floor Map</a></li>
+                    <li><a class="submenuItem">Branch</a></li>
+                </ul>
             </li>
-            <li>
+            <li class="relative">
                 <a>
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
@@ -74,13 +108,15 @@
 
                     <span class="menuItemText">+Report</span>
                 </a>
+
+                
             </li>
 
         </ul>
     </div>
 
     <div (click)="toggleContainerClass($event)" [class.toggleIconActive]="isContainerActive"
-        class="absolute top-1/2 -translate-y-1/2 right-[-15px] w-[30px] h-[30px] rounded-full cursor-pointer bg-white border border-[#e7e7e7] items-center justify-center hidden min-[1024px]:flex toggleIcon">
+        class="absolute top-1/2 -translate-y-1/2 right-[-15px] w-[30px] h-[30px] rounded-full cursor-pointer bg-white border border-[#e7e7e7] items-center justify-center hidden min-[1024px]:flex z-2 toggleIcon">
         <svg xmlns="http://www.w3.org/2000/svg" height="15px" viewBox="0 -960 960 960" width="15px" fill="#94c963">
             <path
                 d="m344.09-427 211.56 211.57L480-140.78 140.78-480 480-819.22l75.65 74.65L344.09-533h475.13v106H344.09Z" />
