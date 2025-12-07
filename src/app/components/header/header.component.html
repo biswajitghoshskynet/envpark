@@ -11,11 +11,17 @@
             <div class="block min-[1024px]:hidden">
                 <button (click)="toggleSidebar()"
                     class="w-[34px] h-[34px] group rounded-full cursor-pointer bg-white flex items-center justify-center shadow hover:bg-[#94c963] hover:text-white">
-                    <!-- Power Icon (uses Heroicons or any SVG) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px] text-black group-hover:text-white"
+                    <!-- menu svg -->
+                    <svg *ngIf="!(isOpen$ | async)" xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px] text-black group-hover:text-white transition-colors"
                         height="24px" viewBox="0 -960 960 960" width="24px">
-                        <path
+                        <path fill="currentColor"
                             d="M140-254.62v-59.99h680v59.99H140ZM140-450v-60h680v60H140Zm0-195.39v-59.99h680v59.99H140Z" />
+                    </svg>
+                    <!-- close svg -->
+                    <svg *ngIf="isOpen$ | async" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        class="w-[18px] h-[18px] text-black group-hover:text-white transition-colors">
+                        <path fill="currentColor"
+                            d="M256-213.85 213.85-256l224-224-224-224L256-746.15l224 224 224-224L746.15-704l-224 224 224 224L704-213.85l-224-224-224 224Z" />
                     </svg>
                 </button>
             </div>
@@ -40,7 +46,8 @@
 
 
     <div class="order-2 min-[1024px]:order-1">
-        <h1 class="mb-0 text-[17px] sm:text-[20px] lg:text-[24px] font-medium text-[#0070ba] leading-[1em]">{{ title$ | async }}
+        <h1 class="mb-0 text-[17px] sm:text-[20px] lg:text-[24px] font-medium text-[#0070ba] leading-[1em]">{{ title$ |
+            async }}
         </h1>
     </div>
 

@@ -12,9 +12,11 @@ import { PageTitleService } from '../../services/page-title.service';
 })
 export class HeaderComponent {
   readonly title$;
+  readonly isOpen$;
 
   constructor(private sidebarService: SidebarService, private pageTitleService: PageTitleService) {
     this.title$ = this.pageTitleService.title$;
+    this.isOpen$ = this.sidebarService.isOpen$;
   }
 
   toggleSidebar() {
