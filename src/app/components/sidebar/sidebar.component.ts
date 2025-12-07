@@ -20,6 +20,7 @@ export class SidebarComponent {
 
   constructor(private sidebarService: SidebarService, private router: Router) {
     this.isOpen$ = this.sidebarService.isOpen$;
+    this.openMenusBasedOnActiveRoute();
   }
 
   toggleContainerClass(event?: MouseEvent) {
@@ -51,6 +52,26 @@ export class SidebarComponent {
 
   isParentActive(urls: string[]): boolean {
     return urls.some(url => this.router.url === url);
+  }
+
+  shouldMenuBeOpen(urls: string[]): boolean {
+    return urls.some(url => this.router.url === url);
+  }
+
+  private openMenusBasedOnActiveRoute(): void {
+    // Define menu configurations with their child URLs
+    const menuConfigs = {
+      allocations: ['/allocation/bayToUser'],
+      view: [],
+      setup: []
+    };
+
+    // Open menus that have active child routes
+    Object.entries(menuConfigs).forEach(([menuKey, urls]) => {
+      if (this.shouldMenuBeOpen(urls)) {
+        this.openMenus[menuKey] = true;
+      }
+    });
   }
 
 }
