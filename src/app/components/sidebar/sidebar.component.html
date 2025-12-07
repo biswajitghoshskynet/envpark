@@ -11,7 +11,7 @@
 
     <div class="sideBarMainList">
         <ul>
-            <li>
+            <li [class.active]="isActive('/')">
                 <a href="/">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
@@ -23,7 +23,7 @@
                     <span class="menuItemText">Home</span>
                 </a>
             </li>
-            <li class="relative">
+            <li [class.active]="isParentActive(['/allocation/bayToUser'])" class="relative">
                 <button type="button" (click)="toggleMenu('allocations',$event)" class="w-full text-left flex items-center gap-x-3">
                     <span class="menuIcon">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
@@ -38,7 +38,7 @@
                 </button>
 
                 <ul *ngIf="isMenuOpen('allocations')" class="sub-menu">
-                    <li><a class="submenuItem" href="/allocation/bayToUser">Bay to User</a></li>
+                    <li [class.active]="isActive('/allocation/bayToUser')"><a class="submenuItem" href="/allocation/bayToUser">Bay to User</a></li>
                     <li><a class="submenuItem">Bay to Department</a></li>
                 </ul>
             </li>

@@ -78,6 +78,14 @@
     left: -27px;
     top: -39px;
 }
+
+.sub-menu li.active a, .sub-menu li a:hover {
+    color: #94c963;
+}
+
+.sub-menu li.active::before, .sub-menu li:hover::before{
+    background-color: #94c963;
+}
 @media (min-width: 1024px) {
     .sideBarContainerDefault.sideBarContainer {
         max-width: 70px;

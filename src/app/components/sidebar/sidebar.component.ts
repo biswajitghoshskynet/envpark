@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { SidebarService } from '../../services/sidebar.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class SidebarComponent {
     view: false,
   };
 
-  constructor(private sidebarService: SidebarService) {
+  constructor(private sidebarService: SidebarService, private router: Router) {
     this.isOpen$ = this.sidebarService.isOpen$;
   }
 
@@ -42,6 +43,14 @@ export class SidebarComponent {
 
   isMenuOpen(key: string) {
     return !!this.openMenus[key];
+  }
+
+  isActive(url: string): boolean {
+    return this.router.url === url;
+  }
+
+  isParentActive(urls: string[]): boolean {
+    return urls.some(url => this.router.url === url);
   }
 
 }
